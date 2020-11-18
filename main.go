@@ -12,6 +12,7 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/about" {
 		fmt.Fprint(w, "此博客是用以记录变编程笔记，如你有反馈或建议，请联系"+"<a href=\"mailto:wlight@gmail.com\">wlight</a>")
 	} else {
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprint(w, "<h1>请求页面未找到:(</h1>"+"<p>如有问题，请联系我们。</p>")
 	}
 }
