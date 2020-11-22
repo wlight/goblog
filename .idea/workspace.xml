@@ -15,6 +15,9 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="ProjectId" id="1kSk9sMe787mu9l8PgsarMQPMW1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,14 +27,27 @@
     <property name="DefaultGoTemplateProperty" value="Go Application" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="229" y="89" key="SettingsEditor" timestamp="1606010798850">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606010798850" />
   </component>
 </project>
