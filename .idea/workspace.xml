@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2371f125-d7d9-47f2-b4ee-09e35bbcda2b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/articles/show.gohtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
@@ -65,6 +66,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606010798850" />
+    <state x="523" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607439448352">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="523" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1607439448352" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606453243165">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
