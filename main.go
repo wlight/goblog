@@ -6,8 +6,9 @@ import (
 	"github.com/go-sql-driver/mysql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
-	"goblog/logger"
+	"goblog/pkg/logger"
 	"goblog/pkg/route"
+	"goblog/pkg/types"
 	"html/template"
 	"net/http"
 	"net/url"
@@ -91,14 +92,6 @@ func (a Article) Delete() (rowsAffected int64, err error) {
 	return 0, nil
 }
 
-
-
-
-// Int64ToString 将 int64 转为 string
-func Int64ToString(num int64) string {
-	return strconv.FormatInt(num, 10)
-}
-
 func articlesShowHandler(w http.ResponseWriter, r *http.Request) {
 	// 1.获取 URL 参数
 	id := route.GetRouteVariable("id", r)
@@ -121,7 +114,7 @@ func articlesShowHandler(w http.ResponseWriter, r *http.Request) {
 		// 4 读取成功，显示文章
 		tmpl, err := template.New("show.gohtml").Funcs(template.FuncMap{
 			"RouteName2URL":route.Name2URL,
-			"Int64ToString":Int64ToString,
+			"Int64ToString":types.Int64ToString,
 		}).ParseFiles("resources/views/articles/show.gohtml")
 
 		logger.LogError(err)
