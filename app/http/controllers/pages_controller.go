@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// 因为go中没有类这个说法，所以我们就创建一个结构体struct来代替类，struct 上的方法代替类中的方法
 // PagesController 处理静态页面
 type PagesController struct {
 }
