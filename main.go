@@ -8,7 +8,6 @@ import (
 	"goblog/bootstrap"
 	"goblog/pkg/database"
 	"goblog/pkg/logger"
-	"goblog/pkg/route"
 	"html/template"
 	"net/http"
 	"net/url"
@@ -384,6 +383,7 @@ func main() {
 	database.Initialize()
 	db = database.DB
 
+	bootstrap.SetupDB()
 	router = bootstrap.SetupRoute()
 
 
