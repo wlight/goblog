@@ -50,13 +50,6 @@ func (a Article) Delete() (rowsAffected int64, err error) {
 	return 0, nil
 }
 
-
-type ArticlesFormData struct {
-	Title, Body string
-	URL         *url.URL
-	Errors      map[string]string
-}
-
 func validateArticleFormData(title string, body string) map[string]string {
 	errors := make(map[string]string)
 
@@ -75,73 +68,6 @@ func validateArticleFormData(title string, body string) map[string]string {
 	}
 
 	return errors
-}
-
-func articlesStoreHandler(w http.ResponseWriter, r *http.Request) {
-	title := r.PostFormValue("title")
-	body := r.PostFormValue("body")
-
-	errors := validateArticleFormData(title, body)
-
-	// 检查是否有错误
-	if len(errors) == 0 {
-		lastInsertID, err := saveArticleToDB(title, body)
-		if lastInsertID > 0 {
-			fmt.Fprint(w, "插入成功，ID为："+strconv.FormatInt(lastInsertID, 10))
-		} else {
-			logger.LogError(err)
-			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprint(w, "500 服务器内部错误")
-		}
-	} else {
-		storeURL, _ := router.Get("articles.store").URL()
-		data := ArticlesFormData{
-			Title:  title,
-			Body:   body,
-			URL:    storeURL,
-			Errors: errors,
-		}
-
-		//tmpl, err := template.New("create-form").Parse(html)
-		tmpl, err := template.ParseFiles("resources/views/articles/create.gohtml")
-		if err != nil {
-			panic(err)
-		}
-
-		tmpl.Execute(w, data)
-	}
-}
-
-func saveArticleToDB(title, body string) (int64, error) {
-	// 变量初始化
-	var (
-		id   int64
-		err  error
-		rs   sql.Result
-		stmt *sql.Stmt
-	)
-
-	// 1.获取一个 prepare 声明语句
-	stmt, err = db.Prepare("INSERT INTO articles (title, body) VALUES (?, ?)")
-	// 例行错误检测
-	if err != nil {
-		return 0, err
-	}
-	// 2, 在此函数运行结束后关闭此语句，防止占用SQL连接
-	defer stmt.Close()
-
-	// 3.执行请求，传参数进入绑定的内容
-	rs, err = stmt.Exec(title, body)
-	if err != nil {
-		return 0, err
-	}
-
-	// 4. 插入成功的话，会返回自增 ID
-	if id, err = rs.LastInsertId(); id > 0 {
-		return id, nil
-	}
-
-	return 0, err
 }
 
 func forceHTMLMiddleware(next http.Handler) http.Handler {
@@ -164,30 +90,19 @@ func removeTrailingSlash(next http.Handler) http.Handler {
 	})
 }
 
-func articlesCreateHandler(w http.ResponseWriter, r *http.Request) {
-	storeURL, _ := router.Get("articles.store").URL()
-
-	data := ArticlesFormData{
-		Title:  "",
-		Body:   "",
-		URL:    storeURL,
-		Errors: nil,
-	}
-	tmpl, err := template.ParseFiles("resources/views/articles/create.gohtml")
-
-	if err != nil {
-		panic(err)
-	}
-
-	tmpl.Execute(w, data)
-}
-
 
 func getArticleByID(id string) (Article, error) {
 	article := Article{}
 	query := "SELECT * FROM articles WHERE id = ?"
 	err := db.QueryRow(query, id).Scan(&article.ID, &article.Title, &article.Body)
 	return article, err
+}
+
+
+type ArticlesFormData struct {
+	Title, Body string
+	URL         *url.URL
+	Errors      map[string]string
 }
 
 func articlesEditHandler(w http.ResponseWriter, r *http.Request) {
@@ -346,12 +261,6 @@ func main() {
 
 	bootstrap.SetupDB()
 	router = bootstrap.SetupRoute()
-
-
-
-	router.HandleFunc("/articles", articlesStoreHandler).Methods("POST").Name("articles.store")
-
-	router.HandleFunc("/articles/create", articlesCreateHandler).Methods("GET").Name("articles.create")
 
 	router.HandleFunc("/articles/{id:[0-9]+}/edit", articlesEditHandler).Methods("GET").Name("articles.edit")
 
