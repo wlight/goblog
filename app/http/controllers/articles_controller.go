@@ -94,7 +94,6 @@ func (*ArticlesController) Create(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, data)
 }
 
-
 func validateArticleFormData(title string, body string) map[string]string {
 	errors := make(map[string]string)
 
@@ -125,7 +124,7 @@ func (*ArticlesController) Store(w http.ResponseWriter, r *http.Request) {
 	if len(errors) == 0 {
 		_article := article.Article{
 			Title: title,
-			Body: body,
+			Body:  body,
 		}
 		_article.Create()
 		if _article.ID > 0 {
@@ -135,7 +134,7 @@ func (*ArticlesController) Store(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprint(w, "创建文章失败，请联系管理员")
 		}
 	} else {
-		storeURL:= route.Name2URL("articles.store")
+		storeURL := route.Name2URL("articles.store")
 		data := ArticlesFormData{
 			Title:  title,
 			Body:   body,
@@ -150,7 +149,6 @@ func (*ArticlesController) Store(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, data)
 	}
 }
-
 
 func (*ArticlesController) Edit(w http.ResponseWriter, r *http.Request) {
 	// 1. 获取URL参数
@@ -187,7 +185,6 @@ func (*ArticlesController) Edit(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, data)
 	}
 }
-
 
 func (*ArticlesController) Update(w http.ResponseWriter, r *http.Request) {
 	//1. 获取 URL 参数
@@ -253,4 +250,49 @@ func (*ArticlesController) Update(w http.ResponseWriter, r *http.Request) {
 			tmpl.Execute(w, data)
 		}
 	}
+}
+
+// 删除文章
+func (*ArticlesController) Delete(w http.ResponseWriter, r *http.Request) {
+	// 1. 获取 URL 参数
+	id := route.GetRouteVariable("id", r)
+
+	// 2. 读取对应的文章数据
+	_article, err := article.Get(id)
+	// 3. 如果出现错误
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			// 3.1 数据未找到
+			w.WriteHeader(http.StatusNotFound)
+			fmt.Fprint(w, "404 文章未找到")
+		} else {
+			// 3.2 数据库错误
+			logger.LogError(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			fmt.Fprint(w, "500 服务器内部错误")
+		}
+	} else {
+		// 4. 未出现错误，执行删除操作
+		rowAffected, err := _article.Delete()
+		// 4.1 发生错误
+		if err != nil {
+			// 应该是 SQL 报错了
+			logger.LogError(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			fmt.Fprint(w, "500 内部服务器错误")
+		} else {
+			// 	4.2 未发生错误
+			if rowAffected > 0 {
+				// 重定向到文章列表页
+				indexURL := route.Name2URL("articles.index")
+				http.Redirect(w, r, indexURL, http.StatusFound)
+			} else {
+				// 404
+				w.WriteHeader(http.StatusNotFound)
+				fmt.Fprint(w, "404 文章未找到")
+			}
+		}
+
+	}
+
 }
