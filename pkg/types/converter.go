@@ -10,6 +10,11 @@ func Int64ToString(num int64) string {
 	return strconv.FormatInt(num, 10)
 }
 
+// Uint64ToString 将uint64转换为string
+func Uint64ToString(num uint64) string {
+	return strconv.FormatUint(num, 10)
+}
+
 // StringToInt 将字符串转换为int
 func StringToInt(str string) int {
 	i, err := strconv.Atoi(str)

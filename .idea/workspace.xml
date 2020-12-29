@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2371f125-d7d9-47f2-b4ee-09e35bbcda2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.gohtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.gohtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/view/view.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/index.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/index.gohtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/article/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/article/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/types/converter.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/types/converter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/show.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/show.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +20,9 @@
       <list>
         <option value="HTML File" />
         <option value="Go Application" />
-        <option value="Go File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
