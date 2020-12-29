@@ -26,7 +26,7 @@ func Render(w io.Writer, data interface{}, tplFiles ...string) {
 	// 4 合并所有模版文件
 	allFiles := append(layoutFiles, tplFiles...)
 
-	// 5 解析s所有模版文件
+	// 5 解析所有模版文件
 	tmpl, err := template.New("").Funcs(template.FuncMap{
 		"RouteName2URL": route.Name2URL,
 	}).ParseFiles(allFiles...)
