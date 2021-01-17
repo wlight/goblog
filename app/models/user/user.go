@@ -1,6 +1,8 @@
 package user
 
-import "goblog/app/models"
+import (
+	"goblog/app/models"
+)
 
 // User 用户模型
 type User struct {
@@ -11,4 +13,8 @@ type User struct {
 	Password string `gorm:"type:varchar(255)" valid:"password"`
 	// gorm:"-"  设置 GORM 在读写时略过此字段
 	PasswordComfirm string `gorm:"-" valid:"password_comfirm"`
+}
+
+func (u User) ComparePassword(password string) bool {
+	return u.Password == password
 }
