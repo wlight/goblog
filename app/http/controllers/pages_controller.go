@@ -19,7 +19,7 @@ func (*PagesController) Home(w http.ResponseWriter, r *http.Request) {
 // About 关于我们页面
 func (*PagesController) About(w http.ResponseWriter, r *http.Request) {
 	data := "此博客是用以记录变编程笔记，如你有反馈或建议，请联系\"+\"<a href=\\\"mailto:wlight@gmail.com\\\">wlight</a>"
-	view.Render(w, data, "abouts.about")
+	view.Render(w, view.D{"data":data}, "abouts.about")
 }
 
 // NotFound 404 页面
