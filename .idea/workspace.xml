@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2371f125-d7d9-47f2-b4ee-09e35bbcda2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/flash/flash.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/_messages.gohtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/requests/article_form.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/http/controllers/auth_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/http/controllers/auth_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/view/view.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/view/view.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/article/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/article/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/_form_field.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/_form_field.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
