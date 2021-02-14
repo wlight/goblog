@@ -37,7 +37,7 @@ func (*ArticlesController) Show(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		// 4 读取成功，显示文章
-		view.Render(w, view.D{"Article":article,}, "articles.show")
+		view.Render(w, view.D{"Article":article}, "articles.show")
 	}
 }
 
