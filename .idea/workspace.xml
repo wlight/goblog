@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2371f125-d7d9-47f2-b4ee-09e35bbcda2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/session.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/http/controllers/articles_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/model/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/session/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/session/session.go" afterDir="false" />
-    </list>
+    <list default="true" id="2371f125-d7d9-47f2-b4ee-09e35bbcda2b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +54,9 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pkg" />
       <recent name="$PROJECT_DIR$" />
