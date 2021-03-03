@@ -39,6 +39,10 @@ func RegisterWebRoutes(r *mux.Router)  {
 	//r.HandleFunc("/auth/forget", auc.Forget).Methods("GET").Name("auth.forget")
 	//r.HandleFunc("/auth/doforget", auc.DoForget).Methods("POST").Name("auth.doforget")
 
+	// 用户页面
+	uc := new(controllers.UserController)
+	r.HandleFunc("/users/{id:[0-9]+}", uc.Show).Methods("GET").Name("users.show")
+
 	// 静态资源
 	r.PathPrefix("/css/").Handler(http.FileServer(http.Dir("./public")))
 	r.PathPrefix("/js/").Handler(http.FileServer(http.Dir("./public")))
